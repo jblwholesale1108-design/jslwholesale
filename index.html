@@ -213,36 +213,89 @@
         .contact-section {
             background: white;
             padding: 3rem 2rem;
-            text-align: center;
         }
         
         .contact-section h2 {
-            margin-bottom: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
             color: #000;
+            font-size: 2.5rem;
         }
         
-        .contact-section p {
-            font-size: 1.1rem;
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-box {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-box h3 {
+            color: #007AFF;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-box p {
             color: #666;
             margin-bottom: 1rem;
         }
         
         .contact-links {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 0.5rem;
         }
         
         .contact-links a {
-            color: #007AFF;
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            transition: transform 0.3s;
         }
         
-        .contact-links a:hover {
-            color: #34C759;
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
+        }
+        
+        .call-btn {
+            background: #007AFF;
+        }
+        
+        .call-btn:hover {
+            background: #0051d5;
+            transform: translateY(-3px);
+        }
+        
+        .email-btn {
+            background: #FF9500;
+        }
+        
+        .email-btn:hover {
+            background: #e68a00;
+            transform: translateY(-3px);
+        }
+        
+        .info-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 1rem 0;
         }
         
         @media (max-width: 768px) {
@@ -260,6 +313,16 @@
             
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+            }
+            
+            .contact-links a {
+                display: block;
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -295,7 +358,7 @@
                     <h3>Sealed iPhones</h3>
                     <p>Factory sealed, latest models available</p>
                     <div class="price">Wholesale Pricing</div>
-                    <button class="cta-button" onclick="alert('Contact us for pricing details')">Get Quote</button>
+                    <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Quote</button>
                 </div>
             </div>
             
@@ -305,7 +368,7 @@
                     <h3>Pre-Owned iPhones</h3>
                     <p>Tested and verified condition devices</p>
                     <div class="price">Budget Friendly</div>
-                    <button class="cta-button" onclick="alert('Contact us for pricing details')">Get Quote</button>
+                    <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Quote</button>
                 </div>
             </div>
             
@@ -315,7 +378,7 @@
                     <h3>Bulk Orders</h3>
                     <p>Volume discounts for resellers & businesses</p>
                     <div class="price">Special Rates</div>
-                    <button class="cta-button" onclick="alert('Contact us for pricing details')">Get Quote</button>
+                    <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Quote</button>
                 </div>
             </div>
         </div>
@@ -354,12 +417,37 @@
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-        <h2>Get In Touch</h2>
-        <p>Ready to order? Contact us for pricing and availability</p>
-        <div class="contact-links">
-            <a href="mailto:contact@jslwholesale.com">📧 Email Us</a>
-            <a href="tel:+1234567890">📞 Call Us</a>
-            <a href="#">💬 Message Us</a>
+        <h2>📞 Get In Touch</h2>
+        <div class="contact-container">
+            <!-- WhatsApp -->
+            <div class="contact-box">
+                <h3>💬 WhatsApp</h3>
+                <p class="info-text">Quick & Easy Communication</p>
+                <p>Message us on WhatsApp for instant responses</p>
+                <div class="contact-links">
+                    <a href="https://wa.me/256703669751?text=Hello%20JSL%20Wholesale%2C%20I%20would%20like%20to%20inquire%20about%20your%20iPhone%20inventory" class="whatsapp-btn" target="_blank">💬 Chat on WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Phone Call -->
+            <div class="contact-box">
+                <h3>📱 Phone Call</h3>
+                <p class="info-text">Speak with us directly</p>
+                <p>Call for immediate assistance and quotes</p>
+                <div class="contact-links">
+                    <a href="tel:+256703669751" class="call-btn">📞 Call: +256 703 669 751</a>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-box">
+                <h3>📧 Email</h3>
+                <p class="info-text">Formal Inquiries</p>
+                <p>Send detailed information about your order</p>
+                <div class="contact-links">
+                    <a href="mailto:jslwholesale@gmail.com" class="email-btn">📧 Email Us</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -367,6 +455,7 @@
     <footer>
         <p>&copy; 2026 JSL Wholesale. All rights reserved.</p>
         <p>Premium iPhone Reseller - Sealed & Pre-Owned</p>
+        <p>WhatsApp: +256 703 669 751 | Phone: +256 703 669 751</p>
     </footer>
 </body>
 </html>
